@@ -489,8 +489,8 @@ InputManager:
     m_Name: WMHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: 4
+    positiveButton: 6
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -505,8 +505,8 @@ InputManager:
     m_Name: WMVertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: up
-    positiveButton: down
+    negativeButton: 8
+    positiveButton: 5
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
