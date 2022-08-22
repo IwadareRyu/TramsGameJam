@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Yoshizawa/Title.unity
+    guid: 1b5a3df535e53094a9a07f653b388329
+  - enabled: 1
+    path: Assets/Yoshizawa/Tatsuhiko_Scene.unity
+    guid: 3ff2a036e8f91264b88d7c3ed030790e
   m_configObjects: {}
