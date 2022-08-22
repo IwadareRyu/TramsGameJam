@@ -57,4 +57,12 @@ public class WatermelonController : MonoBehaviour
             _l = -1;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        {
+            _moveSpeed += 1f;
+            Destroy(collision.gameObject);
+        }
+    }
 }

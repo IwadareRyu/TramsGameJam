@@ -6,6 +6,8 @@ public class TrapIObj : MonoBehaviour
 {
     GameObject _suica;
     PlayerController _player;
+    float _loadSpeed;
+    bool _time;
 
     private void Awake()
     {
@@ -24,10 +26,18 @@ public class TrapIObj : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !_time)
         {
+            _loadSpeed = _player._speed;
+            _time = true;
             _player._speed = 0f;
-            gameObject.SetActive(false);
+            StartCoroutine(TrapTime());
         }
+    }
+    IEnumerator TrapTime()
+    {
+        yield return new WaitForSeconds(5f);
+        _player._speed = _loadSpeed;
+        gameObject.SetActive(false);
     }
 }

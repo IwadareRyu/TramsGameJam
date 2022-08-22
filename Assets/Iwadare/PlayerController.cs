@@ -62,6 +62,14 @@ public class PlayerController : MonoBehaviour
         _confuse.gameObject.SetActive(true);
         StartCoroutine(ConfuseTime());
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Item")
+        {
+            _speed += 1f;
+            Destroy(collision.gameObject);
+        }
+    }
     IEnumerator AttackTime()
     {
         yield return new WaitForSeconds(1f);
@@ -77,4 +85,5 @@ public class PlayerController : MonoBehaviour
         _confuse.gameObject.SetActive(false);
 
     }
+
 }
