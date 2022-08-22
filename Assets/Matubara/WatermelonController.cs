@@ -10,7 +10,8 @@ public class WatermelonController : MonoBehaviour
     float _h;
     float _v;
     public float _l = 1;
-    float _scaleX;
+    [SerializeField] float _skillcooltime;
+    float _timer = default;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,14 @@ public class WatermelonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _h = Input.GetAxisRaw("WMHorizontal");
-        _v = Input.GetAxisRaw("WMVertical");
-        UseSkill();
+        _timer += Time.deltaTime;
+        _h = Input.GetAxisRaw("Horizontal");
+        _v = Input.GetAxisRaw("Vertical");
+        Debug.Log(_timer);
+        if (_timer > _skillcooltime)
+        {
+            UseSkill();
+        }
         FlipX(_h);
     }
     private void FixedUpdate()
@@ -32,15 +38,14 @@ public class WatermelonController : MonoBehaviour
     }
     void UseSkill()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(_seed, transform.position, transform.rotation);
+            _timer = 0;
         }
     }
     void FlipX(float horizontal)
     {
-        _scaleX = this.transform.localScale.x;
-
         if (horizontal > 0)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);

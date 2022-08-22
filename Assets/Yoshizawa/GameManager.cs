@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        float time = Mathf.Clamp(_limitTime -= Time.deltaTime, 0, _limitTime);
-        _text.text = time.ToString("00.00")+ "•b";
+        if(_waterMelon == true)
+        {
+            float time = Mathf.Clamp(_limitTime -= Time.deltaTime, 0, _limitTime);
+            _text.text = time.ToString("00.00") + "•b";
+        }
 
         if(_limitTime <= 0)
         {
