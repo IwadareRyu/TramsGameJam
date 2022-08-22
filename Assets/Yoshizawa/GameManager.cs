@@ -7,7 +7,14 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] float _limitTime;
     [SerializeField]Text _text;
-    [SerializeField] GameObject _go;
+    [SerializeField] GameObject _go1;
+    [SerializeField] GameObject _go2;
+    GameObject _waterMelon;
+
+    void Start()
+    {
+        _waterMelon = GameObject.FindGameObjectWithTag("Suica");
+    }
 
     void Update()
     {
@@ -16,8 +23,12 @@ public class GameManager : MonoBehaviour
 
         if(_limitTime <= 0)
         {
-            _go.SetActive(true);
+            _go1.SetActive(true);
             _limitTime = 0;
+        }
+        else if(_waterMelon == false)
+        {
+            _go2.SetActive(true);
         }
     }
 }
