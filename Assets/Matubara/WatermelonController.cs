@@ -22,8 +22,8 @@ public class WatermelonController : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        _h = Input.GetAxisRaw("Horizontal");
-        _v = Input.GetAxisRaw("Vertical");
+        _h = Input.GetAxisRaw("WMHorizontal");
+        _v = Input.GetAxisRaw("WMVertical");
         Debug.Log(_timer);
         if (_timer > _skillcooltime)
         {
