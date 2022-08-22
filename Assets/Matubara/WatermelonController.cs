@@ -22,8 +22,8 @@ public class WatermelonController : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        _h = Input.GetAxisRaw("Horizontal");
-        _v = Input.GetAxisRaw("Vertical");
+        _h = Input.GetAxisRaw("WMHorizontal");
+        _v = Input.GetAxisRaw("WMVertical");
         Debug.Log(_timer);
         if (_timer > _skillcooltime)
         {
@@ -38,7 +38,7 @@ public class WatermelonController : MonoBehaviour
     }
     void UseSkill()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             Instantiate(_seed, transform.position, transform.rotation);
             _timer = 0;

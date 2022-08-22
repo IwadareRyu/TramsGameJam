@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SeedController : MonoBehaviour
 {
-    Rigidbody2D _rb;
     [SerializeField] float _speed;
     private GameObject _watermelon;
     private WatermelonController _watermeloncs;
@@ -26,7 +25,7 @@ public class SeedController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

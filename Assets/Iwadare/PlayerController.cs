@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject _Attack;
     [SerializeField] GameObject _confuse;
-    [SerializeField] float _speed = 5f;
+    public float _speed = 5f;
     
     Rigidbody2D _rb;
     float _h;
