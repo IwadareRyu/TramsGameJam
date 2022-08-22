@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject _Attack;
+    [SerializeField] GameObject _confuse;
     [SerializeField] float _speed = 5f;
     
     Rigidbody2D _rb;
     float _h;
     float _v;
+    [SerializeField]float _ac = 1.5f;
+    [SerializeField] float _cc = 3f;
     bool _coolTime;
     float minas;
+    bool _confuseTime;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_coolTime)
+        if (!_coolTime && !_confuseTime)
         {
             _h = Input.GetAxis("Horizontal");
             _v = Input.GetAxis("Vertical");
@@ -55,12 +59,25 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    public void Confution()
+    {
+        _confuseTime = true;
+        _confuse.gameObject.SetActive(true);
+        StartCoroutine(ConfuseTime());
+    }
     IEnumerator AttackTime()
     {
         yield return new WaitForSeconds(1f);
         _Attack.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_ac);
         _coolTime = false;
+    }
+    IEnumerator ConfuseTime()
+    {
+        yield return new WaitForSeconds(_cc);
+        _confuseTime = false;
+        _confuse.gameObject.SetActive(false);
+
     }
 }
