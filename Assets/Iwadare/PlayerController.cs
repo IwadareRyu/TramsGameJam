@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D _rb;
     float _h;
     float _v;
+    [SerializeField]float _c = 1.5f;
     bool _coolTime;
     float minas;
     
@@ -60,7 +61,14 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _Attack.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(_c);
         _coolTime = false;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Suica")
+        {
+
+        }
     }
 }
