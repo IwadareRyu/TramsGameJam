@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SeedController : MonoBehaviour
 {
-    Rigidbody2D _rb;
     [SerializeField] float _speed;
     private GameObject _watermelon;
     private WatermelonController _watermeloncs;

@@ -38,7 +38,7 @@ public class WatermelonController : MonoBehaviour
     }
     void UseSkill()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             Instantiate(_seed, transform.position, transform.rotation);
             _timer = 0;
