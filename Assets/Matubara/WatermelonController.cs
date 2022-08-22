@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WatermelonController : MonoBehaviour
 {
-    [SerializeField] float _moveSpeed;
+    public float _moveSpeed;
     [SerializeField] GameObject _seed;
     Rigidbody2D _rb;
     float _h;
