@@ -20,8 +20,8 @@ public class WatermelonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _h = Input.GetAxisRaw("WMHorizontal");
-        _v = Input.GetAxisRaw("WMVertical");
+        _h = Input.GetAxisRaw("Horizontal");
+        _v = Input.GetAxisRaw("Vertical");
         UseSkill();
         FlipX(_h);
     }
