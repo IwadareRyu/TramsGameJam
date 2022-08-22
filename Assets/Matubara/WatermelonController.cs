@@ -20,6 +20,7 @@ public class WatermelonController : MonoBehaviour
     {
         _h = Input.GetAxisRaw("WMHorizontal");
         _v = Input.GetAxisRaw("WMVertical");
+        Seedshoot();
     }
     private void FixedUpdate()
     {
@@ -28,6 +29,9 @@ public class WatermelonController : MonoBehaviour
     }
     void Seedshoot()
     {
-
+        if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            Instantiate(_seed, transform.position, transform.rotation);
+        }
     }
 }
