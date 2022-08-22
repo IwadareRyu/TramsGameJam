@@ -22,13 +22,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _h = Input.GetAxis("Horizontal");
-        _v = Input.GetAxis("Vertical");
+        if (!_coolTime)
+        {
+            _h = Input.GetAxis("Horizontal");
+            _v = Input.GetAxis("Vertical");
+        }
         FlipX(_h);
         if(Input.GetButtonDown("Fire1") && !_coolTime)
         {
             _Attack.gameObject.SetActive(true);
             _coolTime = true;
+            _h = 0;
+            _v = 0;
+            StartCoroutine(AttackTime());
         }
     }
     private void FixedUpdate()
@@ -48,5 +54,13 @@ public class PlayerController : MonoBehaviour
             minas = -1;
         }
 
+    }
+    IEnumerator AttackTime()
+    {
+        yield return new WaitForSeconds(1f);
+        _Attack.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.5f);
+        _coolTime = false;
     }
 }
