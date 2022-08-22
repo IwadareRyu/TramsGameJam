@@ -5,6 +5,7 @@ using UnityEngine;
 public class WatermelonController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed;
+    [SerializeField] GameObject _seed;
     Rigidbody2D _rb;
     float _h;
     float _v;
@@ -22,7 +23,11 @@ public class WatermelonController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector3 Direction = new Vector3(_h, _v).normalized;
-        _rb.velocity = Direction * _moveSpeed;
+        Vector3 dom = new Vector3(_h, _v).normalized;
+        _rb.velocity = dom * _moveSpeed;
+    }
+    void Seedshoot()
+    {
+
     }
 }
