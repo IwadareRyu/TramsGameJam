@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _Attack;
     [SerializeField] GameObject _confuse;
     public float _speed = 5f;
-    
+    float _loadSpeed;
     Rigidbody2D _rb;
     float _h;
     float _v;
@@ -69,6 +69,10 @@ public class PlayerController : MonoBehaviour
             _speed += 1f;
             Destroy(collision.gameObject);
         }
+        if(collision.gameObject.tag == "Seed")
+        {
+            Confution();
+        }
     }
     IEnumerator AttackTime()
     {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_cc);
         _confuseTime = false;
         _confuse.gameObject.SetActive(false);
+
 
     }
 

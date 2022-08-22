@@ -7,6 +7,8 @@ public class SeedController : MonoBehaviour
     [SerializeField] float _speed;
     private GameObject _watermelon;
     private WatermelonController _watermeloncs;
+    //private GameObject _player;
+    //private PlayerController _playercs;
     private float _timer;
     [SerializeField] float _destroytime = 3;
     // Start is called before the first frame update
@@ -16,6 +18,8 @@ public class SeedController : MonoBehaviour
         _watermelon = GameObject.FindGameObjectWithTag("Suica");
         _watermeloncs = _watermelon.GetComponent<WatermelonController>();
         rb.velocity = Vector2.right * _speed * _watermeloncs._l;
+        //_player = GameObject.Find("player");
+        //_playercs = GetComponent<PlayerController>();
     }
     private void Update()
     {
@@ -27,10 +31,9 @@ public class SeedController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            var player = GetComponent<PlayerController>();
-            player.Confution();
-        }
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    _playercs.Confution();
+        //}
     }
 }

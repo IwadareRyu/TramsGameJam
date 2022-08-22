@@ -13,7 +13,7 @@ public class Trap : MonoBehaviour
     {
         _time += Time.deltaTime;
 
-        if(_time > _Cool && Input.GetKeyDown("Fire3"))
+        if(_time > _Cool && Input.GetButtonDown("Fire3"))
         {
             trap.SetActive(true);
         }

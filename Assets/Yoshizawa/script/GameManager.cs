@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _go1;
     [SerializeField] GameObject _go2;
     GameObject _waterMelon;
+    [SerializeField] string sceneName;
 
     void Start()
     {
@@ -28,10 +30,17 @@ public class GameManager : MonoBehaviour
         {
             _go1.SetActive(true);
             _limitTime = 0;
+            StartCoroutine(LoadTime());
         }
         else if(_waterMelon == false)
         {
             _go2.SetActive(true);
+            StartCoroutine(LoadTime());
         }
+    }
+    IEnumerator LoadTime()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(sceneName);
     }
 }
