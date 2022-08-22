@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]float _ac = 1.5f;
     [SerializeField] float _cc = 3f;
     bool _coolTime;
-    float minas;
     bool _confuseTime;
     
     // Start is called before the first frame update
@@ -50,12 +49,10 @@ public class PlayerController : MonoBehaviour
         if(Horizontal > 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
-            minas = 1;
         }
         else if(Horizontal < 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1, transform.localScale.y, transform.localScale.z);
-            minas = -1;
         }
 
     }
